@@ -123,8 +123,15 @@ curl http://localhost:4000/v1/chat/completions \
 
 ---
 
+## Screenshots
+
+![Sign in](./docs/screenshots/01-login.png)
+
+More UI captures (overview, API keys, requests): **[docs/screenshots/README.md](./docs/screenshots/README.md)**.
+
 ## Documentation
 
+- [Screenshots](./docs/screenshots/README.md) — login + dashboard captures
 - [Architecture](./docs/ARCHITECTURE.md) — request flow, layers, data model
 - [API reference](./docs/API.md) — auth, dashboard, and proxy endpoints
 - [Contributing](./docs/CONTRIBUTING.md) — local conventions and PR checklist

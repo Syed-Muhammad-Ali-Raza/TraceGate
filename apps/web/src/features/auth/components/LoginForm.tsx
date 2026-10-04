@@ -1,19 +1,28 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { loginRequest } from '@/features/auth/api';
 import { ApiError } from '@/lib/api-client';
 import { useAuthStore } from '@/stores/useAuthStore';
 
+/**
+ * Renders a stable SSR placeholder, then the real form after mount.
+ * Avoids hydration mismatches from browser password autofill.
+ */
 export function LoginForm() {
   const router = useRouter();
   const setUser = useAuthStore((s) => s.setUser);
+  const [mounted, setMounted] = useState(false);
   const [email, setEmail] = useState('demo@llmgateway.local');
   const [password, setPassword] = useState('DemoPass123!');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   async function onSubmit(event: FormEvent) {
     event.preventDefault();
@@ -28,6 +37,10 @@ export function LoginForm() {
     } finally {
       setLoading(false);
     }
+  }
+
+  if (!mounted) {
+    return <p className="auth-lede">Loading form…</p>;
   }
 
   return (

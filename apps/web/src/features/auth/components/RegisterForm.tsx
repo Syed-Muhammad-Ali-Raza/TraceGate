@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { registerRequest } from '@/features/auth/api';
@@ -10,11 +10,16 @@ import { useAuthStore } from '@/stores/useAuthStore';
 export function RegisterForm() {
   const router = useRouter();
   const setUser = useAuthStore((s) => s.setUser);
+  const [mounted, setMounted] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   async function onSubmit(event: FormEvent) {
     event.preventDefault();
@@ -29,6 +34,10 @@ export function RegisterForm() {
     } finally {
       setLoading(false);
     }
+  }
+
+  if (!mounted) {
+    return <p className="auth-lede">Loading form…</p>;
   }
 
   return (
