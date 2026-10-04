@@ -1,0 +1,32 @@
+{
+  "name": "@llm-gateway/worker",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsup src/index.ts --format esm --clean --out-dir dist",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo ok",
+    "test": "echo ok"
+  },
+  "dependencies": {
+    "@llm-gateway/db": "workspace:*",
+    "@llm-gateway/shared": "workspace:*",
+    "bullmq": "^5.34.5",
+    "dotenv": "^18.0.5",
+    "drizzle-orm": "^0.45.3",
+    "ioredis": "^5.4.2",
+    "pino": "^9.6.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@llm-gateway/config": "workspace:*",
+    "@types/node": "^22.10.5",
+    "pino-pretty": "^13.0.0",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

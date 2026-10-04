@@ -1,0 +1,35 @@
+# dependencies
+node_modules
+.pnpm-store
+
+# builds
+dist
+build
+.next
+out
+.turbo
+
+# env / secrets
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# logs / coverage
+logs
+*.log
+coverage
+.nyc_output
+
+# IDE / OS
+.idea
+.vscode
+*.swp
+.DS_Store
+Thumbs.db
+
+# test / misc
+playwright-report
+test-results
+*.tsbuildinfo
+.cache

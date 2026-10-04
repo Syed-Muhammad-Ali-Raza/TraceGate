@@ -1,0 +1,10 @@
+# Cursor project rules for LLM Gateway
+
+Always follow `AGENTS.md` and `PROJECT_SPEC.md`.
+
+- Build phase by phase; finish and verify before starting the next phase.
+- TypeScript strict, no `any`, max 500 lines per file.
+- Never hardcode secrets; use Zod-validated env.
+- Frontend: React 19 + Server Components first; shadcn primary.
+- Backend: Routes → Controller → Service → Repository.
+- Database: Drizzle; partition hot tables; cursor pagination; rollups for charts.

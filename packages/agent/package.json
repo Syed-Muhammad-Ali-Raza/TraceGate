@@ -1,0 +1,27 @@
+{
+  "name": "llm-gateway-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "llm-gateway-agent": "./dist/cli.js"
+  },
+  "files": ["dist", "skills"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "tsup src/cli.ts --format esm --clean --out-dir dist",
+    "dev": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo ok"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@llm-gateway/config": "workspace:*",
+    "@types/node": "^22.10.5",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

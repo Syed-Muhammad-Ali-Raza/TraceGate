@@ -1,0 +1,44 @@
+{
+  "name": "@llm-gateway/db",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./schema": {
+      "types": "./src/schema/index.ts",
+      "default": "./src/schema/index.ts"
+    },
+    "./client": {
+      "types": "./src/client.ts",
+      "default": "./src/client.ts"
+    }
+  },
+  "scripts": {
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate",
+    "push": "drizzle-kit push",
+    "studio": "drizzle-kit studio",
+    "seed": "tsx seed/seed.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo \"lint: db ok\"",
+    "build": "echo \"db consumed as source\""
+  },
+  "dependencies": {
+    "argon2": "^0.45.1",
+    "dotenv": "^18.0.5",
+    "drizzle-orm": "^0.45.3",
+    "postgres": "^3.4.9",
+    "uuid": "^14.0.2"
+  },
+  "devDependencies": {
+    "@llm-gateway/config": "workspace:*",
+    "@types/node": "^22.10.5",
+    "drizzle-kit": "^0.31.11",
+    "tsx": "^4.19.2",
+    "typescript": "^5.9.3"
+  }
+}

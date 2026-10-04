@@ -1,0 +1,21 @@
+services:
+  api:
+    volumes:
+      - ./apps/api/src:/app/apps/api/src
+      - ./packages/shared/src:/app/packages/shared/src
+    environment:
+      NODE_ENV: development
+
+  web:
+    volumes:
+      - ./apps/web/src:/app/apps/web/src
+      - ./packages/shared/src:/app/packages/shared/src
+    environment:
+      NODE_ENV: development
+      WATCHPACK_POLLING: 'true'
+
+  worker:
+    volumes:
+      - ./apps/worker/src:/app/apps/worker/src
+    environment:
+      NODE_ENV: development
